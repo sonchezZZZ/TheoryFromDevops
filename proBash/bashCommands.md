@@ -158,7 +158,7 @@ You can extract to a different filename using output redirection using the -c op
                   fi
              else echo "$brand - не марка телефона."
             fi
-# ARRAYS
+### ARRAYS
 
 - ```Array=(1 6 3 8 15)```
 -  ```Array2=(1 2 3 4 «five»)```
