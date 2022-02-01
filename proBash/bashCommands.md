@@ -57,3 +57,13 @@ You can extract to a different filename using output redirection using the -c op
 - jobs   : To get the job number, we use the jobs command.
 
 ![image](https://user-images.githubusercontent.com/79608549/151985610-5efffa33-ee3f-4f4c-bfaf-8a9180f90a8f.png)
+
+### Searching
+
+#### Search in files 
+
+- **grep**   | You can use grep to search in files, or combine it with pipes to filter the output of another command.
+
+            grep -n document.getElementById index.md
+
+- ```-n``` : for displaying number of line 
