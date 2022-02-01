@@ -31,7 +31,7 @@
       mkdir fruits
       cp -r fruits cars
 
-- **gzip** : removes .gz and putting in the ```filename``` file.
+- **guzip** : removes .gz and putting in the ```filename``` file.
 
       gunzip filename.gz
 
