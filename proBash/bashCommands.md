@@ -86,3 +86,7 @@ You can extract to a different filename using output redirection using the -c op
 - ```-type l``` : find symbolic links
 
       find . -type d -name src
+
+- ```find``` foldername1, foldername2 : search in multiple root trees
+
+      find folder1 folder2 -name filename.txt
