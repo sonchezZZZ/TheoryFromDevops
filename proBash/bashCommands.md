@@ -49,3 +49,11 @@ You can extract to a different filename using output redirection using the -c op
       The **a** option is used to also list other users' processes, not just your own. 
       
       **x** shows processes not linked to any terminal (not initiated by users through a terminal).
+### JOBS command
+
+- **&** ```top &```
+- **fg** :   We can get back to that program using the fg command. 
+- **fg number**   ```fg 3```
+- jobs   : To get the job number, we use the jobs command.
+
+![image](https://user-images.githubusercontent.com/79608549/151985610-5efffa33-ee3f-4f4c-bfaf-8a9180f90a8f.png)
