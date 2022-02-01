@@ -90,3 +90,94 @@ You can extract to a different filename using output redirection using the -c op
 - ```find``` foldername1, foldername2 : search in multiple root trees
 
       find folder1 folder2 -name filename.txt
+
+## BASH SCRIPTS
+
+### Conditions 
+
+       #!/bin/bash
+       echo "Введите ваш возраст"
+       read age
+       if [[ $age -ge 0 ]] && [[ $age -lt 12 ]]; then
+                  echo "Вы еще ребенок"
+            elif [[ $age -ge 12 ]] && [[ $age -lt 18 ]]; then
+                  echo "Вы подросток"
+            elif [[ $age -ge 18 ]] && [[ $age -lt 60 ]]; then
+                  echo "Вы уже взрослый"
+            else
+                  echo "Вы старичок"
+       fi
+       
+### SWITCH CASE
+
+      #!/bin/bash
+      echo "Введите марку телефона"
+      read brand
+      case $brand in
+            samsung)
+                  echo "Скидка на телефоны $brand - 30%";;
+            nokia)
+                  echo "Скидка на телефоны $brand - 10%";;
+            huawei)
+                  echo "Скидка на телефоны $brand - 20%";;
+            *)
+                  echo "На этот вид товара скидок нет"
+      esac
+      
+### INSERTING CONDITIONS
+
+            #!/bin/bash
+            echo "Введите марку телефона"
+            read brand
+            if [[ $brand == "samsung" ]] || [[ $brand == "nokia" ]] || [[ $brand == "huawei" ]] || [[ $brand == "iphone" ]]; then
+                  case $brand in
+                      samsung)
+                            echo "Скидка на телефоны $brand - 30%";;
+                      nokia)
+                            echo "Скидка на телефоны $brand - 10%";;
+                      huawei)
+                            echo "Скидка на телефоны $brand - 20%";;
+                      *)
+                            echo "На этот вид товара скидок нет"
+                esac
+            fi
+            
+  #Решение при помощи вложенного if
+  
+            echo "Введите марку телефона"
+            read brand
+            if [[ $brand == "samsung" ]] || [[ $brand == "nokia" ]] || [[ $brand == "huawei" ]] || [[ $brand == "iphone" ]]; then
+                  if [[ $brand == "samsung" ]]; then
+                        echo "Скидка на $brand - 30%"
+                  elif [[ $brand == "nokia" ]]; then
+                        echo "Скидка на $brand - 10%"
+                  elif [[ $brand == "huawei" ]]; then
+                        echo "Скидка на $brand - 20%"
+                  else
+                        echo "На данный вид товара скидок нет"
+                  fi
+             else echo "$brand - не марка телефона."
+            fi
+# ARRAYS
+
+- ```Array=(1 6 3 8 15)```
+-  ```Array2=(1 2 3 4 «five»)```
+-  ```echo ${Array[@]}```       : output all elements of array
+- ```«${Array[@]}»```           : output if value of elements exist whitespaces
+- ```echo ${!Array[@]}```       : ouput indexes of elements
+- ```echo ${Array[2]}```        : output 2 element of array
+- ```${#Array[@]}```            : count of array indexes 
+- ```echo ${#Array[индекс]}```  : lenght of element by index
+- ```Array[2]=32```             : set value to 2 element of array
+
+- foreach for elements in array
+
+      for i in ${Array[@]}; do
+            echo «${Array[$i]}»
+      done
+
+- foreach for indexes in array
+
+      for i in ${!Array[@]}; do
+            echo «${Array[$i]}»
+      done
