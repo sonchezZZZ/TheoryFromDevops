@@ -63,14 +63,26 @@ You can extract to a different filename using output redirection using the -c op
 #### Search in files 
 
 - **grep**   | You can use grep to search in files, or combine it with pipes to filter the output of another command.
+- ```-n``` : for displaying number of line 
 
             grep -n document.getElementById index.md
 
-- ```-n``` : for displaying number of line 
-
-      grep -nC 2 document.getElementById index.md
-      
 - ```-C``` :  accepts a number of lines 
 - ```number``` :  One very useful thing is to tell grep to print 2 lines before and 2 lines after the matched line to give you more context.
 
+      grep -nC 2 document.getElementById index.md
+      
+- Search is case sensitive by default. Use the ```-i``` flag to make it insensitive.
 
+### search files and packages 
+
+- **find .**   : key word
+- ```'*.js'``` : searching phrase
+ 
+      find . -name '*.js'
+      
+- ```-type d``` : find directories
+- ```-type f``` : find file
+- ```-type l``` : find symbolic links
+
+      find . -type d -name src
