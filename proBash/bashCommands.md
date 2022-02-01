@@ -67,3 +67,10 @@ You can extract to a different filename using output redirection using the -c op
             grep -n document.getElementById index.md
 
 - ```-n``` : for displaying number of line 
+
+      grep -nC 2 document.getElementById index.md
+      
+- ```-C``` :  accepts a number of lines 
+- ```number``` :  One very useful thing is to tell grep to print 2 lines before and 2 lines after the matched line to give you more context.
+
+
