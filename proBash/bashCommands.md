@@ -38,3 +38,14 @@
 You can extract to a different filename using output redirection using the -c option
 
       gunzip -c filename.gz > anotherfilename
+
+- **ps** : search processes
+
+      ps 
+      ps axww | grep "docker"   - **find processes with such name**
+      
+- ps ax 
+
+      The **a** option is used to also list other users' processes, not just your own. 
+      
+      **x** shows processes not linked to any terminal (not initiated by users through a terminal).
