@@ -181,3 +181,39 @@ You can extract to a different filename using output redirection using the -c op
       for i in ${!Array[@]}; do
             echo «${Array[$i]}»
       done
+
+### LOOPS
+
+- example
+
+      for i in list;
+          do
+            commands;
+      done  
+
+- FOR I IN RANGE
+
+
+      #!/bin/bash
+      # Цикл for
+      for n in 1 2 3;
+            do
+                  echo "$n"
+      done
+- FOR I SUCH AS JAVA
+      
+      # Альтернативный вариант цикла for
+      for (( i = 0; i < 10; i++ )); do
+            echo "$i"
+      done
+      
+- WHILE LOOP 
+
+     
+      # Цикл while
+      n=1
+      while [ $n -lt 4 ]
+            do
+                  echo "$n"
+                  n=$(( $n+1 ));
+      done
