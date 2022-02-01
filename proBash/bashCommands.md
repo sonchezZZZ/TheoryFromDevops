@@ -217,3 +217,12 @@ You can extract to a different filename using output redirection using the -c op
                   echo "$n"
                   n=$(( $n+1 ));
       done
+
+### Comparing 
+
+- -eq (equals), 
+- -ne (not equals)
+- -g (greater then), 
+- -lt (less then),
+- -ge (greater or equels), and 
+- -le (less or equals) operators. 
