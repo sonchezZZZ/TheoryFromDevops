@@ -36,3 +36,12 @@ Note: We don’t need to specify the container name, because we only have one co
 start a bash session in the Pod’s container:
 
     kubectl exec -ti $POD_NAME -- bash
+
+We have now an open console on the container where we run our NodeJS application. The source code of the app is in the server.js file:
+
+
+
+
+
+
+
