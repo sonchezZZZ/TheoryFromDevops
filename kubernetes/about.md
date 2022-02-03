@@ -21,3 +21,5 @@ We will cover other options on how to expose your application outside the kubern
 
 - Kubelet — процесс, отвечающий за взаимодействие между мастером Kubernetes и узлом; он управляет подами и запущенными контейнерами на рабочей машине.
 - Среда выполнения контейнера (например, Docker или rkt), отвечающая за получение (загрузку) образа контейнера из реестра, распаковку контейнера и запуск приложения.
+
+![image](https://user-images.githubusercontent.com/79608549/152444351-2cb0ac5b-85e5-489a-bcfe-1af89091fc4d.png)
