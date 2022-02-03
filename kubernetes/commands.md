@@ -40,7 +40,11 @@ start a bash session in the Pod’s container:
 We have now an open console on the container where we run our NodeJS application. The source code of the app is in the server.js file:
 
 
+You can check that the application is up by running a curl command:
 
+    curl localhost:8080
+
+Note: here we used localhost because we executed the command inside the NodeJS Pod. If you cannot connect to localhost:8080, check to make sure you have run the kubectl exec command and are launching the command from within the Pod
 
 
 
