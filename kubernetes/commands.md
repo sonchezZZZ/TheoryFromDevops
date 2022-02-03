@@ -32,3 +32,7 @@ Anything that the application would normally send to STDOUT becomes logs for the
     kubectl logs $POD_NAME
 
 Note: We don’t need to specify the container name, because we only have one container inside the pod.
+
+start a bash session in the Pod’s container:
+
+    kubectl exec -ti $POD_NAME -- bash
