@@ -1,12 +1,12 @@
 Let’s verify that the application we deployed in the previous scenario is running. We’ll use the kubectl get command and look for existing Pods:
 
-kubectl get pods
+    kubectl get pods
 
 If no pods are running then it means the interactive environment is still reloading it's previous state. Please wait a couple of seconds and list the Pods again. You can continue once you see the one Pod running.
 
 Next, to view what containers are inside that Pod and what images are used to build those containers we run the describe pods command:
 
-kubectl describe pods
+    kubectl describe pods
 
 We see here details about the Pod’s container: IP address, the ports used and a list of events related to the lifecycle of the Pod.
 
@@ -22,3 +22,5 @@ Now again, we'll get the Pod name and query that pod directly through the proxy.
 To see the output of our application, run a curl request.
 
         curl http://localhost:8001/api/v1/namespaces/default/pods/$POD_NAME/proxy/
+        
+The url is the route to the API of the Pod.
