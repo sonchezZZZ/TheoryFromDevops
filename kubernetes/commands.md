@@ -24,3 +24,11 @@ To see the output of our application, run a curl request.
         curl http://localhost:8001/api/v1/namespaces/default/pods/$POD_NAME/proxy/
         
 The url is the route to the API of the Pod.
+
+
+## View the container logs
+Anything that the application would normally send to STDOUT becomes logs for the container within the Pod. We can retrieve these logs using the kubectl logs command:
+
+    kubectl logs $POD_NAME
+
+Note: We don’t need to specify the container name, because we only have one container inside the pod.
