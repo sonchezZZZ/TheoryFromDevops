@@ -47,5 +47,47 @@ You can check that the application is up by running a curl command:
 Note: here we used localhost because we executed the command inside the NodeJS Pod. If you cannot connect to localhost:8080, check to make sure you have run the kubectl exec command and are launching the command from within the Pod
 
 
+## Create a new service
+
+    kubectl get services
+    
+We have a Service called kubernetes that is created by default when minikube starts the cluster. To create a new service and expose it to external traffic we’ll use the expose command with NodePort as parameter (minikube does not support the LoadBalancer option yet).
+
+        kubectl expose deployment/kubernetes-bootcamp --type="NodePort" --port 8080
+        
+We have now a running Service called kubernetes-bootcamp. Here we see that the Service received a unique cluster-IP, an internal port and an external-IP (the IP of the Node).
+
+To find out what port was opened externally (by the NodePort option) we’ll run the describe service command:
+
+    kubectl describe services/kubernetes-bootcamp
+    
+Create an environment variable called NODE_PORT that has the value of the Node port assigned:
+
+export NODE_PORT=$(kubectl get services/kubernetes-bootcamp -o go-template='{{(index .spec.ports 0).nodePort}}')
+echo NODE_PORT=$NODE_PORT
+
+Now we can test that the app is exposed outside of the cluster using curl, the IP of the Node and the externally exposed port:
+
+curl $(minikube ip):$NODE_PORT
+
+## Labels
+
+Let’s use this label to query our list of Pods. We’ll use the kubectl get pods command with -l as a parameter, followed by the label values:
+
+    kubectl get pods -l app=kubernetes-bootcamp
+
+You can do the same to list the existing services:
+
+    kubectl get services -l app=kubernetes-bootcamp
+And we get a response from the server. The Service is exposed.
 
 
+### To apply a new label we use the label command followed by the object type, object name and the new label:
+
+    kubectl label pods $POD_NAME version=v1
+    
+## Deleting a service
+
+To delete Services you can use the delete service command. Labels can be used also here:
+
+    kubectl delete service -l app=kubernetes-bootcamp
