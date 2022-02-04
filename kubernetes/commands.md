@@ -1,7 +1,7 @@
 # Main commands 
 
 - ```kubectl apply -f podname.yaml ``` - create pod from yaml file
-- 
+- ```kubectl delete -f podname.yaml ``` - delete pod with yaml file
 
 
 
