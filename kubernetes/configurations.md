@@ -1,0 +1,1 @@
+- ~/.kube/config file configuration for cluster
