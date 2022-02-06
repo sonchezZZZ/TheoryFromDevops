@@ -55,3 +55,8 @@ We will cover other options on how to expose your application outside the kubern
 - **Load Balancer** - в CLoud Clusters(AWS)
 
   
+## Ingress Controller
+
+![image](https://user-images.githubusercontent.com/79608549/152692227-2c82ddc5-7061-463a-8aeb-d98a22bb7759.png)
+
+- set from github
