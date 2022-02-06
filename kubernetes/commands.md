@@ -105,3 +105,10 @@ To delete Services you can use the delete service command. Labels can be used al
 - ``` k rollout history  deployment/deploy```      |    view versions of revisions
 - ```k rollout restart deployment/deploy```      update if image version = latest and you need to update
 - ```k apply -f deployment-1-simple.yaml ```       | create deployment from yaml file 
+
+
+## Services
+
+- ```k expose deployment deployname --type=ClusterIP --port 80``` - create service
+- ```kubectl get services ``` - view services
+- 
