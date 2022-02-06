@@ -93,3 +93,15 @@ And we get a response from the server. The Service is exposed.
 To delete Services you can use the delete service command. Labels can be used also here:
 
     kubectl delete service -l app=kubernetes-bootcamp
+
+
+## Deployment
+
+- ``` k scale deployment deploy --replicas 4``` change count of replicas in deployment 
+- ``` autoscale deployment deploy --min=4 --max=6 --cpu-percent=80  ``` 
+- ```k rollout undo  deployment/deploy ```    return to last version of image
+- ```k set image deployment/deploy k8sphp=adv4000/k8sphp:version2 --record. ```   set another version of image
+- ```k rollout undo deployment/deploy --to-revision=4```     change to some revision
+- ``` k rollout history  deployment/deploy```      |    view versions of revisions
+- ```k rollout restart deployment/deploy```      update if image version = latest and you need to update
+- ```k apply -f deployment-1-simple.yaml ```       | create deployment from yaml file 
