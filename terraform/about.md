@@ -40,7 +40,7 @@
 
 ## Delete instances 
 
-- ** if from count 3 to count 2**, 
+- **if from count 3 to count 2**, 
   1. ``change in file`` 
   2. ``terraform apply``
   
