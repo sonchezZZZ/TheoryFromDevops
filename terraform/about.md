@@ -217,3 +217,18 @@
         Owner = "Denis Astahov"
       }
     }
+
+## OUTPUT from terraform commands
+
+- id of instace
+
+      output "webserver_instance_id"{
+        value = aws_instance.instance_name.id
+      }
+
+- elastic ip 
+
+
+       output "webserver_public_ip_adress"{
+        value = aws_eip.eip_name.public_ip
+      }
