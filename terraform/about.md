@@ -247,3 +247,6 @@ in this file:
 2. in resource that will created latest other,  write
 
         depends_on = [aws_instance.instance-name-that-need-create-before-this]
+- if need several before that instance
+
+        depends_on = [aws_instance.instance-name-that-need-create-before-this,aws_instance.instance-  name-that-need-create-before-this]
