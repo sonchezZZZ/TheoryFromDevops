@@ -14,7 +14,11 @@
 - Chef
 
 
-### Create terraform folder with plugins
+## Look instances from EC2
+
+``aws wc2 describe-instances``
+
+### Create instance
 
 1. create folder
 2. create new .tf file 
@@ -58,12 +62,13 @@
 - from command line
    1. ``export AWS_ACCES_KEY_ID=accesKey``
    2. ``export AWS_SECRET_ACCES_KEY=accessSecretKey``
-   3. ``terraform apply``
+   3. ``in file write region`` or ``export AWS_DEFAULT_REGION=eu-central-1`` 
+   4. ``terraform apply``
 
 - from file 
 
       provider "aws" {
-        access_key = "AKIAW7Z7HKCF6LRNM6GS"                     // from IAM user
-        secret_key = "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" // from IAM user
+        access_key = ""                     // from IAM user
+        secret_key = "" // from IAM user
         region     = "us-east-1"                                // regin where to create instances
       }
