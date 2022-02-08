@@ -147,6 +147,8 @@
         }
         ...
       }
+      
+      
 ## Add Security Group
 
 1.
@@ -176,3 +178,14 @@
 
         vpc_security_group_ids = [aws_security_group.my_webserver.id]
     
+
+
+## Configure not destroying instance
+
+-    `` lifecycle {
+         prevent_destroy = true 
+         }`` - if something changing from tf file will destroy instance, it will throw error
+-    `` lifecycle {
+         ignore_changes = ["ami","user_data"] 
+         }``   -   ignore changes in such fields and not apply in this resource
+         
