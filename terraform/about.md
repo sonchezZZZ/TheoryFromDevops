@@ -182,10 +182,14 @@
 
 ## Configure not destroying instance
 
--    `` lifecycle {
-         prevent_destroy = true 
-         }`` - if something changing from tf file will destroy instance, it will throw error
--    `` lifecycle {
-         ignore_changes = ["ami","user_data"] 
-         }``   -   ignore changes in such fields and not apply in this resource
+-   if something changing from tf file will destroy instance, it will throw error
+
+         lifecycle {
+            prevent_destroy = true 
+         }
          
+-   ignore changes in such fields and not apply in this resource
+         
+         lifecycle {
+                 ignore_changes = ["ami","user_data"] 
+         } 
