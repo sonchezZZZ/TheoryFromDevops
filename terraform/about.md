@@ -75,19 +75,32 @@
 
 
 ## Add scripts for server 
-    resource "aws-instance" "ubuntu"{
-    ...
-        user_data    = <<EOF
-        #/bin/bash
-        yum -y
-        yum -y install httpd
-        myip=`curl http://169.254.169.254/latest/meta-data/local-ipv4`
-        echo "<h2>WebServer with IP: $myip</h2><br>Build by Terraform!"  >  /var/www/html/index.html
-        sudo service httpd start
-        chkconfig httpd on
-        EOF
-    }
 
+1. From resource 
+
+
+        resource "aws-instance" "ubuntu"{
+        ...
+            user_data    = <<EOF
+            #/bin/bash
+            yum -y
+            yum -y install httpd
+            myip=`curl http://169.254.169.254/latest/meta-data/local-ipv4`
+            echo "<h2>WebServer with IP: $myip</h2><br>Build by Terraform!"  >  /var/www/html/index.html
+            sudo service httpd start
+            chkconfig httpd on
+            EOF
+        }
+
+2. From external files 
+
+        resource "aws_instance" "my_Ubuntu" {              // aws instance with name my_Ubuntu
+          ...
+          user_data              = file("script.sh")
+
+        }
+        
+        
 ## Add Security Group
 
 1.
