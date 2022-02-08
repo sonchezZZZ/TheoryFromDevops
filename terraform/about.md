@@ -37,3 +37,15 @@
 1. open terraform url
 2. view examples
 
+
+## Delete instances 
+
+- ** if from count 3 to count 2**, 
+  1. ``change in file`` 
+  2. ``terraform apply``
+  
+- **if delete whole resource**
+  1. ``delete resource in file``
+  2. ``terraform apply``
+- 
+
