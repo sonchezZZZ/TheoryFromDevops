@@ -224,6 +224,9 @@
 
 ``` terraform show ```   - show resources from file tf
 
+- new file output.tf
+
+in this file:
 - id of instace
 
       output "webserver_instance_id"{
