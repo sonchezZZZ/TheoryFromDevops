@@ -99,6 +99,12 @@
           user_data              = file("script.sh")
 
         }
+ 
+ 3. From dynamic files
+
+
+
+        terraform console
         
         
 ## Add Security Group
