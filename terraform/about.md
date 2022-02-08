@@ -47,5 +47,7 @@
 - **if delete whole resource**
   1. ``delete resource in file``
   2. ``terraform apply``
-- 
+  
+- **delete all resources in file**
+  1. ```terraform destroy```
 
