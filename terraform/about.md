@@ -101,11 +101,24 @@
         }
  
  3. From dynamic files
+        
+        resource "aws_instance" "my_webserver" {
+              ...
+              user_data = templatefile("user_data.sh.tpl", {
+                f_name = "Denis",
+                l_name = "Astahov",
+                names  = ["Vasya", "Kolya", "Petya", "John", "Donald", "Masha"]
+              })
+         }     
 
 
+      
+      
+## CHECK SCRIPT CODE FROM CLI      
 
         terraform console
-        
+        file("")
+        templatefile
         
 ## Add Security Group
 
