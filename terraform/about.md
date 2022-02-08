@@ -180,16 +180,31 @@
     
 
 
-## Configure not destroying instance
+## Configure  Lifecycle
 
 -   if something changing from tf file will destroy instance, it will throw error
 
          lifecycle {
             prevent_destroy = true 
          }
-         
+Это можно использовать в качестве меры защиты от случайной замены объектов, воспроизведение которых может быть дорогостоящим, например, экземпляров базы данных. Однако это сделает невозможным применение определенных изменений конфигурации и предотвратит использование terraform destroy команды 
+
+обратите внимание, что этот параметр не предотвращает уничтожение удаленного объекта, если resource блок был полностью удален из конфигурации: в этом случае prevent_destroy параметр удаляется вместе с ним, и, таким образом, Terraform позволит успешно выполнить операцию по уничтожению. 
+
 -   ignore changes in such fields and not apply in this resource
          
          lifecycle {
                  ignore_changes = ["ami","user_data"] 
          } 
+
+- create new instance before deleted last 
+
+        resource "azurerm_resource_group" "example" {
+          # ...
+
+          lifecycle {
+            create_before_destroy = true
+          }
+        }
+        
+        
