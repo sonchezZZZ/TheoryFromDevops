@@ -13,6 +13,7 @@
 - Puppet
 - Chef
 
+``` terraform show ```   - show resources from file tf
 
 ## Look instances from EC2
 
@@ -227,7 +228,6 @@
       }
 
 - elastic ip 
-
 
        output "webserver_public_ip_adress"{
         value = aws_eip.eip_name.public_ip
