@@ -72,3 +72,41 @@
         secret_key = "" // from IAM user
         region     = "us-east-1"                                // regin where to create instances
       }
+
+
+## Add scripts for server 
+    resource "aws-instance" "ubuntu"{
+    ...
+        user_data    = <<EOF
+        #/bin/bash
+        yum -y
+        yum -y install httpd
+        myip=`curl http://169.254.169.254/latest/meta-data/local-ipv4`
+        echo "<h2>WebServer with IP: $myip</h2><br>Build by Terraform!"  >  /var/www/html/index.html
+        sudo service httpd start
+        chkconfig httpd on
+        EOF
+    }
+
+## Add Security Group
+
+    resource "aws_security_group" "my_web_server" { // Creating new security group
+
+      ingress {
+        from_port   = 80
+        to_port     = 80
+        protocol    = "tcp"
+        cidr_blocks = ["0.0.0.0/0"]
+      }
+
+      egress {
+        from_port   = 0
+        to_port     = 0
+        protocol    = "-1"
+        cidr_blocks = ["0.0.0.0/0"]
+      }
+
+      tags = {
+        Name = "security-group"
+      }
+    }
