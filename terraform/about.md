@@ -90,6 +90,8 @@
 
 ## Add Security Group
 
+1.
+
     resource "aws_security_group" "my_web_server" { // Creating new security group
 
       ingress {
@@ -110,3 +112,8 @@
         Name = "security-group"
       }
     }
+
+2. in instances:
+
+        vpc_security_group_ids = [aws_security_group.my_webserver.id]
+    
