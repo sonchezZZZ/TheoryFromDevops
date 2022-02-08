@@ -230,7 +230,8 @@ in this file:
 - id of instace
 
       output "webserver_instance_id"{
-        value = aws_instance.instance_name.id
+        value = aws_instance.instance_name.id     //value that will be print in console
+        description = "some description"          // description that will be show only in file
       }
 
 - elastic ip 
