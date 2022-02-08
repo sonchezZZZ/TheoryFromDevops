@@ -239,3 +239,11 @@ in this file:
        output "webserver_public_ip_adress"{
         value = aws_eip.eip_name.public_ip
       }
+
+
+## Priority for creating instances
+
+1. create main.tf
+2. in resource that will created latest other,  write
+
+        depends_on = [aws_instance.instance-name-that-need-create-before-this]
