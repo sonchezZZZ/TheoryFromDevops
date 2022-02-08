@@ -208,3 +208,12 @@
         }
         
         
+## Set elastic ip adress for instance
+
+    resource "aws_eip" "my_static_ip" {
+      instance = aws_instance.my_webserver.id
+      tags = {
+        Name  = "Web Server IP"
+        Owner = "Denis Astahov"
+      }
+    }
