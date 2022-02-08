@@ -28,7 +28,12 @@
 ### Change instance 
 
 1. change .tf file
-2. Enter ```terraform apply``` 
+2. Enter ```terraform plan```
+3. Enter ```terraform apply``` 
 
 
+## View How to do 
+
+1. open terraform url
+2. view examples
 
