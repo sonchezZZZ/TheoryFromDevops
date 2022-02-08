@@ -116,9 +116,13 @@
       
 ## CHECK SCRIPT CODE FROM CLI      
 
-        terraform console
-        file("")
-        templatefile
+        1. terraform console
+        2. file("script.sh.tpl")
+        3. templatefile("user_data.sh.tpl", {
+                f_name = "Denis",
+                l_name = "Astahov",
+                names  = ["Vasya", "Kolya", "Petya", "John", "Donald", "Masha"]
+              })
         
 ## Add Security Group
 
