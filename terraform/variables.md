@@ -66,7 +66,11 @@ or create autofills file
 
 - if several tfvar files in folder  `` terraform plan -var-file="prod.auto.tfvars" ``
 
-              
+ 
+## Concat two variables 
+
+                     full_project_name = "${var.env}.${var.project_name}"
+                     
 ## Local variables
 
               locals {
