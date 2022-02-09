@@ -31,3 +31,9 @@
                          Project = "Sonchezz_Environment"
                        }
                      }
+
+## In some field add element from variable(list)
+
+                   tags = {
+                   Name = "${var.common_tags["Environment"]} some individual text"
+                   }
