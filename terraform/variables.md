@@ -56,7 +56,7 @@ or
 
 or create autofills file
 
-             file : terraform.tf.vars
+             filename : terraform.tfvars   // dev.auto.tfvars   // prod.auto.tfvars
              
              Inside file : 
              
@@ -64,3 +64,6 @@ or create autofills file
              detail_monitoring = false
              ...
 
+- if several tfvar files in folder  `` terraform plan -var-file="prod.auto.tfvars"
+
+              
