@@ -70,6 +70,7 @@ or create autofills file
 ## Concat two variables 
 
                      full_project_name = "${var.env}.${var.project_name}"
+                     owner = "${var.owner} owner of ${var.project_name}"
                      
 ## Local variables
 
