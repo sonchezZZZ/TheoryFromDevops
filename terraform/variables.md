@@ -44,3 +44,11 @@
                     terraform plan -var="region=us-west-1"
                     
                      terraform plan -var="region=us-west-1"  -var="instance_type=t3.micro "
+
+or 
+
+                    export TF_VAR_region=us_west-2 
+                    
+                    // check = echo $TF_VAR_region
+                    
+                    terraform apply
