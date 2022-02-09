@@ -86,3 +86,11 @@ or create autofills file
                   Owner = local.full_project_name
                 }
               }
+
+### Local variable from data
+
+                region = data.aws_region.regionAws
+                
+### Local variable from data as list
+
+        az_list = join(",", data.aws_availability_zones.availabilities.names)
