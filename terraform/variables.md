@@ -6,7 +6,7 @@
 
        variable "region" {
           description = "Enter region"            // placeholder
-          default = "us-east-1"                   // default value
+          default = "us-east-1"                   // default value  and not let write in console
       }
         
         
@@ -37,3 +37,10 @@
                    tags = {
                    Name = "${var.common_tags["Environment"]} some individual text"
                    }
+
+
+## For change variable default value when apply or plan
+
+                    terraform plan -var="region=us-west-1"
+                    
+                     terraform plan -var="region=us-west-1"  -var="instance_type=t3.micro "
