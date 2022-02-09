@@ -39,9 +39,9 @@ resource "null_resource" "command4" {
   provisioner "local-exec" {
     command = "echo $NAME1 $NAME2 $NAME3 >> names.txt"
     environment = {
-      NAME1 = "Vasya"
-      NAME2 = "Petya"
-      NAME3 = "Kolya"
+      NAME1 = "Vasya"     // variables for command
+      NAME2 = "Petya"      // variables for command
+      NAME3 = "Kolya"      // variables for command
     }
   }
 }
@@ -51,7 +51,7 @@ resource "aws_instance" "myserver" {
   ami           = "ami-08a9b721ecc5b0a53"
   instance_type = "t3.micro"
   provisioner "local-exec" {
-    command = "echo Hello from AWS Instance Creations!"
+    command = "echo Hello from AWS Instance Creations!"  //write test after creation
   }
 }
 
