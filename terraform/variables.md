@@ -18,3 +18,16 @@
 
             }
         }
+
+## Add to variable list element
+
+               tags = merge(var.common_tags, {Name = "Server IP"})
+               
+               // variable "common_tags" {
+                       type = map
+                       description = " tags fro all resources"
+                       default = {
+                         Owner = "Sofiia Cherednychenko"
+                         Project = "Sonchezz_Environment"
+                       }
+                     }
