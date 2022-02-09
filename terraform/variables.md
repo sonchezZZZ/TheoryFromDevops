@@ -56,4 +56,11 @@ or
 
 or create autofills file
 
-              terraform.tf.vars
+             file : terraform.tf.vars
+             
+             Inside file : 
+             
+             region = "us-east-1"
+             detail_monitoring = false
+             ...
+
