@@ -48,6 +48,7 @@
 or 
 
                     export TF_VAR_region=us_west-2 
+                    export TF_VAR_instance_type=t3.micro
                     
                     // check = echo $TF_VAR_region
                     
