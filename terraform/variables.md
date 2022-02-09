@@ -53,3 +53,7 @@ or
                     // check = echo $TF_VAR_region
                     
                     terraform apply
+
+or create autofills file
+
+              terraform.tf.vars
