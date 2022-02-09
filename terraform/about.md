@@ -295,3 +295,24 @@ in this file:
 ## Variables 
 
 [link (variables.md)] 
+
+
+# Storage for password
+1. create password 
+
+
+        resource "random_string" "aws_password" {
+          length = 12
+          special = true
+          override_special = "!&#"    //what special will be used
+        }
+
+2. save in Amazon aws parameter store
+
+
+        resource "aws_ssm_parameter" "aws_password"{
+          name = "/prod/mysql"
+          description = "Cluster password for RDS MySql"
+          type = "SecureString"
+          value = random_string.aws_password.result
+         }
