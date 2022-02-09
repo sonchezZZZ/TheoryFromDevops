@@ -67,3 +67,17 @@ or create autofills file
 - if several tfvar files in folder  `` terraform plan -var-file="prod.auto.tfvars" ``
 
               
+## Local variables
+
+              locals {
+                full_project_name = "${var.env}.${var.project_name}"
+              }
+
+
+              resource "aws_eip" "my_static_ip" {
+                instance = aws_instance.my_Ubuntu.id
+                tags ={
+                  Name = "Static IP"
+                  Owner = local.full_project_name
+                }
+              }
