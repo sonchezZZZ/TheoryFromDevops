@@ -250,3 +250,17 @@ in this file:
 - if need several before that instance
 
         depends_on = [aws_instance.instance-name-that-need-create-before-this,aws_instance.instance-  name-that-need-create-before-this]
+
+
+## DataSource from aws 
+
+1. Get aws data 
+
+        data "aws_region" "region" {}
+        
+2. Output aws data
+       
+        output "data_region_name" {
+          value = data.aws_region.region.name
+        }
+       
