@@ -150,7 +150,7 @@
       }
       
       
-## Add Security Group
+# Add Security Group
 
 1.
 
@@ -264,3 +264,28 @@ in this file:
           value = data.aws_region.region.name
         }
        
+
+## AMI id from datasource 
+
+1. In AWS Launch instances -> copy id 
+2. in AWS Images-AMIs -> paste for source 
+3. copy nam eand owner 
+4. in tf file create **data**
+
+          data "aws_ami" "latest_ubuntu" {
+            owners      = ["099720109477"]   // from aws
+            most_recent = true
+            filter {
+              name   = "name"
+              values = ["ubuntu/images/hvm-ssd/ubuntu-bionic-18.04-amd64-server-*"]    // from aws
+            }
+          }
+5. For ,for example, output, use:
+
+            output "latest_ubuntu_ami_id" {
+              value = data.aws_ami.latest_ubuntu.id
+            }
+
+            output "latest_ubuntu_ami_name" {
+              value = data.aws_ami.latest_ubuntu.name
+            }
