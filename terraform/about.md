@@ -390,3 +390,4 @@ in this file:
 ## Безболезненное удаление instance 
 
 - пометить на пересоздание после apply   ``` terraform taint aws_instance.node2```
+- еще раз сделать terraform apply 
