@@ -64,6 +64,6 @@ or create autofills file
              detail_monitoring = false
              ...
 
-- if several tfvar files in folder  `` terraform plan -var-file="prod.auto.tfvars"
+- if several tfvar files in folder  `` terraform plan -var-file="prod.auto.tfvars" ``
 
               
