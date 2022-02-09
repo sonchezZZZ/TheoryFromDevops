@@ -267,6 +267,8 @@ in this file:
 
 ## AMI id from datasource 
 
+### PLUS = works for all regions 
+
 1. In AWS Launch instances -> copy id 
 2. in AWS Images-AMIs -> paste for source 
 3. copy nam eand owner 
