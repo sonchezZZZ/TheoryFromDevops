@@ -389,5 +389,10 @@ in this file:
 
 ## Безболезненное удаление instance 
 
+- если версия 15.1
 - пометить на пересоздание после apply   ``` terraform taint aws_instance.node2```
 - еще раз сделать terraform apply 
+ 
+ #### or
+ 
+-  если версия 15.2+  ``` terraform apply -replace aws_instance.node2``` 
