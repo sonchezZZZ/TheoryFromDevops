@@ -316,3 +316,10 @@ in this file:
           type = "SecureString"
           value = random_string.aws_password.result
          }
+
+3. Get from Amazon
+
+          data "aws_ssm_parameter" "my_aws_password" {
+            name = "prod/mysql"
+            depends_on = [aws_ssm_parameter.aws_password]
+          }
