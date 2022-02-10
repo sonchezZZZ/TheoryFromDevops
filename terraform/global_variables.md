@@ -4,7 +4,7 @@
 2. Create new folder 
 3. In terraform file create configs for saving data in bucket
 
-          provider "aws" {
+        provider "aws" {
           region = "ca-central-1"
         }
 
