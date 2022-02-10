@@ -101,3 +101,13 @@
             "Username: ${user.name} has ARN: ${user.arn}"
           ]
         }
+
+- create map in loop
+
+        //Print My Custom output MAP
+        output "created_iam_users_map" {
+          value = {
+            for user in aws_iam_user.users :
+            user.unique_id => user.id // "AIDA4BML4STW22K74HQFF" : "vasya"
+          }
+        }
