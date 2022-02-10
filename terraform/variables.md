@@ -94,3 +94,8 @@ or create autofills file
 ### Local variable from data as list
 
         az_list = join(",", data.aws_availability_zones.availabilities.names)
+
+
+## Actions with variables
+
+- 
