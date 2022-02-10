@@ -32,6 +32,7 @@
               CostCenter = "R&D"
               Country    = "Canada"
             }
+          } 
             
                
  4. terraform apply
