@@ -32,8 +32,11 @@
                   count         = var.env == "dev" ? 1 : 0
                   ami           = "ami-03a71cec707bfc3d7"
                   instance_type = "t2.micro"
+                }        
 
-                  tags = {
-                    Name = "Bastion Server for Dev-server"
-                  }
-                }
+# Lookup
+
+- variable = map ``` variable "ec2_size" {...} ```
+- команда `` instance_type = lookup(var.ec2_size "prod")``
+-      
+         
