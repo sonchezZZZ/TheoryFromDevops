@@ -111,3 +111,16 @@
             user.unique_id => user.id // "AIDA4BML4STW22K74HQFF" : "vasya"
           }
         }
+
+
+# Loop with conditions 
+
+
+        // Print List of users with name 4 characters ONLY
+        output "custom_if_length" {
+          value = [
+            for x in aws_iam_user.users :  // for user in users
+            x.name                        // write name to value
+            if length(x.name) == 4        // if length of name == 4 characters
+          ]
+        }
