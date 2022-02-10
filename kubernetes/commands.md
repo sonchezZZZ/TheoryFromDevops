@@ -97,6 +97,7 @@ To delete Services you can use the delete service command. Labels can be used al
 
 ## Deployment
 
+- ```kubectl apply -f https://projectcontour.io/quickstart/contour.yaml ``` || create  deployment Ingress Control
 - ``` k scale deployment deploy --replicas 4``` change count of replicas in deployment 
 - ``` autoscale deployment deploy --min=4 --max=6 --cpu-percent=80  ``` 
 - ```k rollout undo  deployment/deploy ```    return to last version of image
@@ -111,4 +112,6 @@ To delete Services you can use the delete service command. Labels can be used al
 
 - ```k expose deployment deployname --type=ClusterIP --port 80``` - create service
 - ```kubectl get services ``` - view services
-- 
+- ``` kubectl delete service deploy ```     |   delete service
+- ```k expose deployment deploy --type=NodePort  --port 80```    | create node port service
+- ```k expose deployment deploy --type=LoadBalancer --port 80```
