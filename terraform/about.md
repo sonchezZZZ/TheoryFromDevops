@@ -394,3 +394,15 @@ in this file:
  #### or
  
 -  если версия 15.2+  ``` terraform apply -replace aws_instance.node2``` 
+
+
+## Importing existing resources
+
+1. create tf file, for example import.tf
+
+          resource "aws_instance" "node1" {
+
+          }
+2. in cli terraform init in this folder with file
+3. in cli ```# terraform import aws_instance.node1 i-0417da3dfcfd6e059``` , where i-0.... = id of resource          
+          
