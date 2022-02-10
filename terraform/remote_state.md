@@ -29,7 +29,9 @@
                   }
                 }
                 
-                
+-------------------------------------------------------------------------------------------------   
+
+
                 resource "aws_security_group" "webserver" {
                   name = "WebServer Security Group"
                   vpc_id = data.terraform_remote_state.network.outputs.vpc_id
