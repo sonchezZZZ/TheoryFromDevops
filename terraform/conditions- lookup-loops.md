@@ -81,3 +81,13 @@
           }
         }
 
+## For each
+
+        resource "aws_iam_user" "users" {
+          count = length(var.users_list) // size of list
+          name  = element(var.users_list, count.index)
+        }
+        
+                output "users_name" {
+                  value = aws_iam_user.users[*].name
+                }
