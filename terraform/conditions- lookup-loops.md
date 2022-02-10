@@ -92,3 +92,12 @@
          output "users_name" {
           value = aws_iam_user.users[*].name
         }              
+
+
+        //Print my Custom output list
+        output "created_iam_users_custom" {
+          value = [
+            for user in aws_iam_user.users :
+            "Username: ${user.name} has ARN: ${user.arn}"
+          ]
+        }
