@@ -39,4 +39,27 @@
 - variable = map ``` variable "ec2_size" {...} ```
 - команда `` instance_type = lookup(var.ec2_size "prod")``
 -      
-         
+     
+## Example
+
+
+                        variable "ec2_size" {
+                          default = {
+                            "prod"    = "t3.medium"
+                            "dev"     = "t3.micro"
+                            "staging" = "t2.small"
+                          }
+                        }
+                        
+                        
+                // Use of LOOKUP
+                resource "aws_instance" "my_webserver2" {
+                  ami           = "ami-03a71cec707bfc3d7"
+                  instance_type = lookup(var.ec2_size, var.env)
+
+                  tags = {
+                    Name  = "${var.env}-server"
+                    Owner = var.env == "prod" ? var.prod_onwer : var.noprod_owner
+                  }
+                }
+
