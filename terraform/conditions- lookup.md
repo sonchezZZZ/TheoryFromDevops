@@ -41,7 +41,9 @@
 -      
      
 ## Example
-
+                variable "env" {
+                  default = "dev"
+                }
 
                  variable "ec2_size" {
                       default = {
