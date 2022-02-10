@@ -43,14 +43,13 @@
 ## Example
 
 
-                        variable "ec2_size" {
-                          default = {
-                            "prod"    = "t3.medium"
-                            "dev"     = "t3.micro"
-                            "staging" = "t2.small"
-                          }
-                        }
-                        
+                 variable "ec2_size" {
+                      default = {
+                         "prod"    = "t3.medium"
+                         "dev"     = "t3.micro"
+                         "staging" = "t2.small"
+                    }
+                 }                        
                         
                 // Use of LOOKUP
                 resource "aws_instance" "my_webserver2" {
