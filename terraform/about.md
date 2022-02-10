@@ -398,11 +398,11 @@ in this file:
 
 ## Importing existing resources
 
-1. create tf file, for example import.tf
+1. create tf file, for example ``import.tf``
 
           resource "aws_instance" "node1" {
 
           }
 2. in cli terraform init in this folder with file
 3. in cli ```# terraform import aws_instance.node1 i-0417da3dfcfd6e059``` , where i-0.... = id of resource          
-          
+4. From ``terraform.tfstate`` file copy code of resource and write in import.tf          
