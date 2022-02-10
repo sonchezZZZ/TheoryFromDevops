@@ -1,7 +1,8 @@
 ## Write global variables
 
 1. Create bucket in aws
-2. In terraform file create configs for saving data in bucket
+2. Create new folder 
+3. In terraform file create configs for saving data in bucket
 
           provider "aws" {
           region = "ca-central-1"
