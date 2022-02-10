@@ -64,3 +64,20 @@
                   }
                 }
 
+
+
+# Loops
+
+- works using count 
+
+### Example 
+
+        resource "aws_instance" "newInst" {
+          count         = 3
+          ami           = "ami-0e472ba40eb589f49"
+          instance_type = "t3.large"
+          tags = {
+            Name = "Name is ${count.index+1}"   // allows to steps by every index of count started from 0 , so we should add 1 
+          }
+        }
+
