@@ -41,6 +41,7 @@
 
 ## Reading global variables
 
+- in other folder
 
         data "terraform_remote_state" "global" {
           backend = "s3"
