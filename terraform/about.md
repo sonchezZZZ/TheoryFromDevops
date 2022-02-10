@@ -406,3 +406,33 @@ in this file:
 2. in cli terraform init in this folder with file
 3. in cli ```# terraform import aws_instance.node1 i-0417da3dfcfd6e059``` , where i-0.... = id of resource          
 4. From ``terraform.tfstate`` file copy code of resource and write in import.tf          
+
+
+
+## Commands to remote state
+
+- ``terraform state show aws_instance.web_instance`` - show information about resource from remote state
+- ``terraform state list `` - show all resources from remote state
+- ``terraform state pull `` - show  tfstate file content
+- `` terraform state pull > file.txt `` - save tfstate  content to file
+- `` terraform state mv -state-out="terraform.tfstate"  aws_eip-prod aws_eip-prod`` - moves from terraform remote state to local file   instances that writed in commanf \
+- `` aws_eip-prod aws_eip-prod`` - from resource name and to resource name 
+
+
+## Refactor of states
+
+1. change files tf
+
+          terraform {
+            backend "s3" {
+              bucket = "adv-it-terraform-state"        // Bucket where to SAVE Terraform State
+              key    = "new-staging/terraform.tfstate" // Object name in the bucket to SAVE Terraform State
+              region = "us-west-2"                     // Region where bucket is created
+            }
+          }
+3. create separate directories
+4. get list of resourcers from stage and ``terraform mv `` files to directory
+5. cut terraform.tfstate and paste in the right directory
+6. in console cd to right directory
+7. ``terraform init`` - allows push new local terraform.tfstate to remote state
+
