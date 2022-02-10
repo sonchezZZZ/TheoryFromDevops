@@ -417,6 +417,7 @@ in this file:
 - `` terraform state pull > file.txt `` - save tfstate  content to file
 - `` terraform state mv -state-out="terraform.tfstate"  aws_eip-prod aws_eip-prod`` - moves from terraform remote state to local file   instances that writed in commanf \
 - `` aws_eip-prod aws_eip-prod`` - from resource name and to resource name 
+-``terraform state push terrafor.tfstate    / terraform apply`` - push local state to remote
 
 
 ## Refactor of states
@@ -435,4 +436,3 @@ in this file:
 5. cut terraform.tfstate and paste in the right directory
 6. in console cd to right directory
 7. ``terraform init`` - allows push new local terraform.tfstate to remote state
-
