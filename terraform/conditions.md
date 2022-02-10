@@ -23,3 +23,17 @@
                   instance_type = var.env == "prod" ? "t3.large" : "t2.micro"
 
                 }
+
+
+## Condition  create instance or no
+
+                // Create Bastion ONLY for if "dev" environment
+                resource "aws_instance" "my_dev_bastion" {
+                  count         = var.env == "dev" ? 1 : 0
+                  ami           = "ami-03a71cec707bfc3d7"
+                  instance_type = "t2.micro"
+
+                  tags = {
+                    Name = "Bastion Server for Dev-server"
+                  }
+                }
