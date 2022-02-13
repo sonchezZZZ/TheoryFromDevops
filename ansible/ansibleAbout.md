@@ -62,3 +62,13 @@ Ansible - автоматизация настройки конфигураций
       [prod_ALL:vars]     //variables of all servers that parent is prod_ALL
       ansible_user=ubuntu
       ansible_ssh_private_key_file=/home/ubuntu/.ssh/sonya-key-Virgini.pem
+
+
+## Variables from hosts.txt
+
+1. Create hear hosts directory `group_vars` 
+2. Create in this dir file 
+3. File:
+          ``  ---
+            ansible_user:ubuntu
+            ansible_ssh_private_key_file:/home/ubuntu/.ssh/sonya-key-Virgini.pem``
