@@ -1,9 +1,9 @@
 ---
-- name: Install default Apache
-  hosts: all
-  become: yes
+- name: Install default Apache     # description
+  hosts: all                       # for all hosts
+  become: yes                      # from sudo
   
-  vars:
+  vars:                            # variables
     source_file: ./MyWebSite/path
     destin_file: /var/www/html
     owner      : Sofiia
@@ -12,10 +12,10 @@
   
   - name : Print text
     debug: 
-      var: source_file           // print variable 
+      var: source_file              # print variable 
       
   - name: Install Apache
-    yum:  name=httpd state=latest
+    yum:  name=httpd state=latest   # yum command
     
   - name: Copy home page
     copy: src={{ source_file }} dest={{ destin_file }} mode=0555
