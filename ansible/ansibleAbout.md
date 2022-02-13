@@ -69,6 +69,7 @@ Ansible - автоматизация настройки конфигураций
 1. Create hear hosts directory `group_vars` 
 2. Create in this dir file 
 3. File:
-          ``  ---
+
+            ---
             ansible_user:ubuntu
-            ansible_ssh_private_key_file:/home/ubuntu/.ssh/sonya-key-Virgini.pem``
+            ansible_ssh_private_key_file:/home/ubuntu/.ssh/sonya-key-Virgini.pem
