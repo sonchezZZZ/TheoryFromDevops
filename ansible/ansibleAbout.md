@@ -73,3 +73,22 @@ Ansible - автоматизация настройки конфигураций
             ---
             ansible_user : ubuntu
             ansible_ssh_private_key_file : /home/ubuntu/.ssh/sonya-key-Virgini.pem
+
+
+## Playbook
+
+- Playbook - it is yml file
+1. Create file playbook1.yml 
+2. Example of file
+
+ 
+            ---
+            - name: Test Connections
+              hosts: all
+              become: yes
+
+              tasks:
+
+              - name: Ping my servers
+                ping:
+
