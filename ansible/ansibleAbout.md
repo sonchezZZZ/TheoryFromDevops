@@ -14,7 +14,19 @@ Ansible - автоматизация настройки конфигураций
 
 - ``ansible all -m setup``   -  properties of the servers
 - ``ansible all -m shell -a "uptime"``  - run commands in servers, where ``-a`` - bash command
-- ``ansible all -m command " "`` - run commands in servers, BUT not using arguments
+- ``ansible all -m command -a "pwd"`` - run commands in servers, BUT not using arguments
+- ``ansible all -m copy -a "src=path/to/source dest=/path/to/servers/directories" -b ``- copies file from master to servers, where ``-b`` - allows write as root user
+- `` ansible all -m file -a "path=/home/path/to/file state=absent -b" `` - deletes file from servers
+- `` ansible all -m get_url -a "url=https://pathtofile" -b `` - download file in all servers
+- `` ansible all -m yum -a "name=stress state=installed -b" `` - install program stress in all servers
+- `` ansible all -m  yum -a "name=stress state=removed -b"`` - uninstall programm from all servers
+- `` ansible all -m uri -a "url=http://www.adv-it" `` - get content from url (curl)
+- `` ansible all -m uri -a "url=http://www.adv-it return_content=yes" `` -  get content(curl) and return this
+- `` ansible all -m service -a "name=https state=started enabled=yes" -b `` - start http page in servers
+- `` ansible all -m ... ... -v `` - run with dubugs or ``-vv``, ``-vvv``, ``-vvvv``
+- `` ansible-doc -l`` - commands from ansible     
+
+
 
 # Connecting to servers
 
@@ -50,15 +62,3 @@ Ansible - автоматизация настройки конфигураций
       [prod_ALL:vars]     //variables of all servers that parent is prod_ALL
       ansible_user=ubuntu
       ansible_ssh_private_key_file=/home/ubuntu/.ssh/sonya-key-Virgini.pem
-
-
-
-
-
-
-
-
-
-
-
-
