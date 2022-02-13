@@ -1,0 +1,27 @@
+---
+- name: Install default Apache
+  hosts: all
+  become: yes
+  
+  vars:
+    message1: Hello
+    message2: world
+  
+  tasks:
+  
+  - name : Print text
+    debug: 
+      var: source_file           // print variable
+  - debug:
+      msg: "Private word: {{ source_file }}"    // pring variable with message
+      
+  - debug:
+      msg: "Owner of this server --> {{ owner }} <--"   // print from file with variables for hosts
+      
+  - set_fact:  full_message= "{{ message1 }} {{ message}} from {{ owner }}"   
+  
+  - debug:
+      var: full_message
+      
+  - debug:
+      var: ansible_distribution    // print variable from properties of severs (view on ansible setup) 
