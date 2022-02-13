@@ -41,6 +41,13 @@ Ansible - автоматизация настройки конфигураций
 1. Create keys ssh 
 2. chmod 400 path/to/key
 3. Create inventory (hosts.txt)
+4. Create ansible.cfg
+5. fill ansible.cfg
+
+
+            [defaults]
+            host_key_cheking = false
+            inventory        = ./hosts.txt
 
 ## Inventory
 1. Create file hosts.txt
@@ -79,7 +86,8 @@ Ansible - автоматизация настройки конфигураций
 
 - Playbook - it is yml file
 1. Create file playbook1.yml 
-2. Example of file
+2. ``Ansible-playbook playbook1.yml`` - connect with playbooks
+3. Example of file
 
  
             ---
