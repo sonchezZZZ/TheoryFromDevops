@@ -1,0 +1,27 @@
+## from ansible:2.5 - loop   BUT before with_items:
+---
+- name: Loops Playbook
+  hosts: linux3
+  become: yes
+  
+  tasks:
+  - name: Say Hello to All
+    debug: msg="Hello {{ item }}"
+    loop:
+      - "Vasya"
+      - "Petya"
+      - "Kolya"
+      - "Timosha"
+   
+  - name: loop Until 
+    shell: echo -n Z >> mylife.txt && cat mylife.txt
+    register: output
+    delay: 2              # delay 2 s
+    retries: 10           # повторять 10 раз   
+    until:  output.stdout.find("ZZZZ") == false    # пока не 
+    
+  - name: Print output 
+    debug:
+      var: output.stdout
+        
+      
