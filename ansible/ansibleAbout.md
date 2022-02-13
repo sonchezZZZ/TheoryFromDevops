@@ -7,7 +7,7 @@ Ansible - автоматизация настройки конфигураций
 - **pull**  - на управляемых серверах установлен агент, который делает pull настроек от Мастер
 - **push**  -  на управляемых серверах ничего не установлено, Master делает Push настроек
 - **ansible-inventory --list**  - все группы, сервера и переменные 
-- **ansible -i hosts.txt all -m ping**
+- **ansible -i hosts.txt all -m ping**   - ping to all servers
 
 # Connecting to servers
 
@@ -30,17 +30,17 @@ Ansible - автоматизация настройки конфигураций
 
 ### Example of Inventory
 
-      [prod_web]
+      [prod_web]   //name of server group 
       ubuntu3 ansible_host=54.236.179.159
 
       [prod_db]
       ubuntu2 ansible_host=54.159.192.83
 
-      [prod_ALL:children]
+      [prod_ALL:children]   //main group with children servers
       prod_web
       prod_db
 
-      [prod_ALL:vars]
+      [prod_ALL:vars]     //variables of all servers that parent is prod_ALL
       ansible_user=ubuntu
       ansible_ssh_private_key_file=/home/ubuntu/.ssh/sonya-key-Virgini.pem
 
