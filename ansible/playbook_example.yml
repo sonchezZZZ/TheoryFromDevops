@@ -6,8 +6,14 @@
   vars:
     source_file: ./MyWebSite/path
     destin_file: /var/www/html
+    owner      : Sofiia
   
   tasks:
+  
+  - name : Print text
+    debug: 
+      var: source_file           // print variable 
+      
   - name: Install Apache
     yum:  name=httpd state=latest
     
