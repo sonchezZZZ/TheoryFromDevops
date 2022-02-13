@@ -7,6 +7,7 @@ Ansible - автоматизация настройки конфигураций
 - **pull**  - на управляемых серверах установлен агент, который делает pull настроек от Мастер
 - **push**  -  на управляемых серверах ничего не установлено, Master делает Push настроек
 - **ansible-inventory --list**  - все группы, сервера и переменные 
+- **ansible-inventory --graph**  - все группы серверов в виде графа
 - **ansible -i hosts.txt all -m ping**   - ping to all servers
 
 # Connecting to servers
