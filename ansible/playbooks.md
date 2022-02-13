@@ -35,3 +35,8 @@ or
         when: ansible_os_family == "RedHat"   # под буквой b
           
           
+          
+
+
+## LOOPS
+
