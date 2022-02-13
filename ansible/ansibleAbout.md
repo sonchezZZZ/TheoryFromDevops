@@ -4,11 +4,17 @@ Ansible - автоматизация настройки конфигураций
 
 # Commands
 
-- **pull**  - на управляемых серверах установлен агент, который делает pull настроек от Мастер
-- **push**  -  на управляемых серверах ничего не установлено, Master делает Push настроек
-- **ansible-inventory --list**  - все группы, сервера и переменные 
-- **ansible-inventory --graph**  - все группы серверов в виде графа
-- **ansible -i hosts.txt all -m ping**   - ping to all servers
+- ``pull``  - на управляемых серверах установлен агент, который делает pull настроек от Мастер
+- ``push``  -  на управляемых серверах ничего не установлено, Master делает Push настроек
+- ``ansible-inventory --list``  - все группы, сервера и переменные 
+- ``ansible-inventory --graph``  - все группы серверов в виде графа
+- ``ansible -i hosts.txt all -m ping``   - ping to all servers
+
+## AD HOC COmmand of ansible
+
+- ``ansible all -m setup``   -  properties of the servers
+- ``ansible all -m shell -a "uptime"``  - run commands in servers, where ``-a`` - bash command
+- ``ansible all -m command " "`` - run commands in servers, BUT not using arguments
 
 # Connecting to servers
 
