@@ -32,6 +32,6 @@ or
           - name: Copy HomePage file
             copy:  src={{ source_file }} dest= {{ destination_file }} mode=0555
          
-         when: ansible_os_family == "RedHat"   # под буквой b
+        when: ansible_os_family == "RedHat"   # под буквой b
           
           
