@@ -24,4 +24,12 @@
       var: full_message
       
   - debug:
-      var: ansible_distribution    // print variable from properties of severs (view on ansible setup) 
+      var: ansible_distribution    // print variable from properties of severs (view on ansible setup)
+      
+  - shell: uptime
+    pegister: results // save to results
+    
+    
+  - debug:
+      var: results    // print to console to results
+    
