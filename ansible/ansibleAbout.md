@@ -373,3 +373,15 @@ In Amazon:
  2. export AWS_SECRET_ACCESS_KEY=...
  3. sudo chmod +x ec2.py
  4. ``./ec2.py --list``  - get servers from aws
+
+
+## Create resources in Amazon
+
+            tasks:
+            - name: Create new AWS EC2 Server
+              ec2:
+                key_name: "{{ keypair }}"
+                instance_type: "{{ inctance_type }}"
+                image: "{{ image }}"
+                ....
+             register: ec2           # Start ec2  
