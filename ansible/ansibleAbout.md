@@ -124,4 +124,14 @@ Ansible - автоматизация настройки конфигураций
 
 1. mkdir roles
 2. ``ansible -galaxy init deploy_apache_web`` in dir roles
-3. 
+3. from playbook move to dir roles/deploy_apache_web, where tasks,vars,files,default exist
+4. in playbook add 
+            
+            roles:
+               - deploy_apache_web
+            
+  or
+     
+            roles:
+               -  {role: deploy_apache_web, when: ansible_system == 'Linux'}
+            
