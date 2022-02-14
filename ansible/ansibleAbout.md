@@ -153,7 +153,7 @@ Ansible - автоматизация настройки конфигураций
 
 1. Get tasts
 2. Create file create_folder
-3. in this 
+3. in this file write:
 
             ---
             - name: Create folder 1
@@ -168,7 +168,7 @@ Ansible - автоматизация настройки конфигураций
                  state: directory
                  mode: 0755               
                  
-4. In playbook 
+4. In playbook use:
             
             tasks: 
             - name: Create folders
@@ -189,3 +189,20 @@ or
               include: create_folders.yml   mytext="Hello from Vancouver"   # вставляет по факту
                                                 # меняет содежржимое переменной из плейбука для этого файла
               
+
+
+## Delegating
+
+- Перенаправление задач на определенные сервера
+
+1. In playbook write:
+
+            tasks:
+            
+            - name: Create file
+              copy: 
+                dest: /home/file1.txt
+                content: |
+                    this is FIle1
+                    On Rushion {{ mytext }}
+              delegate_to: linux3
