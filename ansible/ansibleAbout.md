@@ -118,3 +118,10 @@ Ansible - автоматизация настройки конфигураций
               template: src={{ source_folder }}/index.j2   dest={{ destin_folder }} mode=0555
               notify: 
                         ....
+
+
+## Roles
+
+1. mkdir roles
+2. ``ansible -galaxy init deploy_apache_web`` in dir roles
+3. 
