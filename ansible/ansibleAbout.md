@@ -179,4 +179,10 @@ or
             - name: Create folders
               import: create_folders.yml    # имплементирует с самого начала и добавляет        перменные 
               
+or 
+
+            tasks: 
+            - name: Create folders
+              include: create_folders.yml   mytext="Hello from Vancouver"   # вставляет по факту
+                                                # меняет содежржимое переменной из плейбука для этого файла
               
