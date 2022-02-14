@@ -322,7 +322,54 @@ or
 ## Secret files
 
 - ``ansible-vault create mysecret.txt`` - create file with password 
-- ``ansible-vault view mysecret.txt``   -  view file with password
-- ``ansible-vault edit mysecret.txt``   - edit file with password
-- ``ansible-vauly rekey file.txt``      - change password in secret file
-- 
+- ``ansible-vault view mysecret.txt  ``   -  view file with password
+- ``ansible-vault edit mysecret.txt  ``   - edit file with password
+- ``ansible-vauly rekey file.txt     ``      - change password in secret file
+
+#### SECRET PLAYBOOKS
+
+- ``ansible-vault encrypt playbook_vault.yml`` - зашифровать плейбук
+- ``ansible-vault decrypt playbook_vault.yml`` - расшифровать плейбук
+
+
+1. ``playbook playbook_vault.yml --ask-vault-pass`` - запускать зашифрованые плейбуки
+
+or 
+
+1. create file encrypter.txt 
+2. ``ansible-playbook playbook.yml --vault-password-file mypass.txt`` - get password from file 
+
+
+#### Encrypt Variables
+
+1. ``ansible-vault encrypt_string``
+2. print text 
+3. copy encrypted password from text ``!vault....``
+4. in playbook add to variable encrypted text
+5. ``ansible-playbook playbook.yml --ask-vault-pass`` - run playbook with encrypted variables
+
+or
+
+1. echo -n "$%^SECRETPASSWORD&&^%" | ansible-vault encrypt_string
+2. add text to playbook
+3. run playbook with argument ``--ask-vault-pass`` 
+4. and in cofigs will be text in password = SECRETPASSWORD
+
+
+## Dynamic inventory files AWS ETC2
+
+1. wget http... (find in ansible aws etc2)
+
+
+In Amazon:
+ 1. Create user
+ 2. add permissions  AmazonEC2ReadOnlyAccess, AmazonElasticCacheReadOnlyAccess, AmazonRDSReadOnlyAccess
+ 3. generate access keys
+ 
+ 
+ IN MASTER CLI:
+ 
+ 1. export AWS_ACCESS_KEY=...
+ 2. export AWS_SECRET_ACCESS_KEY=...
+ 3. sudo chmod +x ec2.py
+ 4. ``./ec2.py --list``  - get servers from aws
