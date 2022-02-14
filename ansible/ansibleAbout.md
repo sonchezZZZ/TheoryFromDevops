@@ -135,3 +135,48 @@ Ansible - автоматизация настройки конфигураций
             roles:
                -  {role: deploy_apache_web, when: ansible_system == 'Linux'}
             
+
+## Extra vars
+
+- заменяют все переменные, которые были указаны
+
+1. in playbook:
+            
+            hosts: {{ MYHOST }}
+            
+2. in CLI 
+
+            ansible-playbook playbook6.yml --extra-var "MYHOST=STAGING  SECVAR=SOFIIA"   
+            
+            
+## INCLUDE
+
+1. Get tasts
+2. Create file create_folder
+3. in this 
+
+            ---
+            - name: Create folder 1
+              file:
+                 path: /home/secret/folder1
+                 state: directory
+                 mode: 0755
+               
+            - name: Create folder 1
+              file:
+                 path: /home/secret/folder1
+                 state: directory
+                 mode: 0755               
+                 
+4. In playbook 
+            
+            tasks: 
+            - name: Create folders
+              include: create_folders.yml    # вставляет по факту
+or
+
+            tasks: 
+            - name: Create folders
+              import: create_folders.yml    # имплементирует с самого начала и добавляет                                                        перменные 
+              
+              
