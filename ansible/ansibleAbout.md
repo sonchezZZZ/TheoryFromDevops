@@ -218,3 +218,31 @@ or
               shell: echo this server {{ inventory_hostname }} was deregistered from our Load Balancer >> /home/...
               delegate_to: 127.0.0.1   
               
+
+
+## WAIT 
+
+            tasks:
+            - name: Wait till my server will come up online
+              wait_for:
+                  host: "{{ inventory_hostname }}"      # wait host
+                  state: started                        # wait for state is started
+                  delay: 5                              # start waiting after 5 s 
+                  timeout: 40                           # wait 40 s
+               delegate_to: 127.0.0.1                   # locaalhost(master) will wait
+               
+
+
+## Error Handling
+
+1. Create playbook_errorhandling.yml
+2. In this:
+
+            ---
+            - name: Ansible Lesson 19
+              hosts: all
+              become: yes
+              
+              
+              tasks:
+              - name: 
