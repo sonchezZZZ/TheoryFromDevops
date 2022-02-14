@@ -258,7 +258,7 @@ or
  
  Task 1 failed, and so task2 and task3 did not started
  
- 3. Add Ignore errors
+ #### Add Ignore errors
 
             ---
             - name: Ansible Lesson 19
@@ -279,7 +279,7 @@ or
                 shell: echo Hello 3
 
 
-4. Add condition when result is failed
+#### Add condition when result is failed
 
             
             ---
@@ -301,4 +301,19 @@ or
               - name: Task 3 
                 shell: echo Hello 3
                 
-             
+  or 
+  
+               - name: Task 2
+                shell: echo Hello 2
+                register: results
+                Failed_when: results.rc == 0  # fail if result code = 0
+
+#### Create fatal  errors
+
+- if some task failed, run fatal and stop all tasks for all servers 
+
+            ---
+            - name: Ansible Lesson 19
+              hosts: all
+              any_errors_fatal: true
+              become: yes         # from root
