@@ -235,14 +235,70 @@ or
 
 ## Error Handling
 
+- if not handler, then after failed task all other will not be started
+
 1. Create playbook_errorhandling.yml
-2. In this:
+2. In this write:
 
             ---
             - name: Ansible Lesson 19
               hosts: all
-              become: yes
+              become: yes         # from root
               
               
               tasks:
-              - name: 
+              - name: Task 1
+                yum: name=treeee state:latest
+                
+              - name: Task 2
+                shell: echo Hello 2
+                
+              - name: Task 3 
+                shell: echo Hello 3
+ 
+ Task 1 failed, and so task2 and task3 did not started
+ 
+ 3. Add Ignore errors
+
+            ---
+            - name: Ansible Lesson 19
+              hosts: all
+              become: yes         # from root
+              
+              
+              tasks:
+              - name: Task 1
+                yum: name=treeee state:latest
+                ignore_errors: yes              ## if failed, continue other tasks
+                
+              - name: Task 2
+                shell: echo Hello 2
+                register: results
+                
+              - name: Task 3 
+                shell: echo Hello 3
+
+
+4. Add condition when result is failed
+
+            
+            ---
+            - name: Ansible Lesson 19
+              hosts: all
+              become: yes         # from root
+              
+              
+              tasks:
+              - name: Task 1
+                yum: name=treeee state:latest
+                ignore_errors: yes              ## if failed, continue other tasks
+                
+              - name: Task 2
+                shell: echo Hello 2
+                register: results
+                Failed_when: "'World' in results.stdout"   # fail if condition
+                
+              - name: Task 3 
+                shell: echo Hello 3
+                
+             
