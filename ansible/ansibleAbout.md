@@ -81,7 +81,6 @@ Ansible - автоматизация настройки конфигураций
             ansible_user : ubuntu
             ansible_ssh_private_key_file : /home/ubuntu/.ssh/sonya-key-Virgini.pem
 
-
 ## Playbook
 
 - Playbook - it is yml file
@@ -100,3 +99,22 @@ Ansible - автоматизация настройки конфигураций
               - name: Ping my servers
                 ping:
 
+## Template
+
+- file from html , where we can write global variables in html 
+
+1. Create file from index.html to index.j2
+2. in this file we can write
+
+               <font colot="gold"> Owner of this Server is: {{ owner }} </br>
+               
+               
+               <h1>Server OS family is: {{ansible_os_family }} </h1>
+               
+3. in playbook 
+
+            
+            - name: Generate INDEX_HTML file
+              template: src={{ source_folder }}/index.j2   dest={{ destin_folder }} mode=0555
+              notify: 
+                        ....
