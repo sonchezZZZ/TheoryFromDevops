@@ -205,4 +205,16 @@ or
                 content: |
                     this is FIle1
                     On Rushion {{ mytext }}
-              delegate_to: linux3
+              delegate_to: linux3           # do this command only on linux3
+
+
+## Unregister services 
+- runs shell on all servers
+- echoes to file in localhost
+
+
+            tasks:
+            - name: Unregister WServer from Load Balancer
+              shell: echo this server {{ inventory_hostname }} was deregistered from our Load Balancer >> /home/...
+              delegate_to: 127.0.0.1   
+              
