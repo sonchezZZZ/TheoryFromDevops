@@ -181,6 +181,9 @@ or
               
 or 
 
+            vars: 
+             mytext: "Hello"
+             
             tasks: 
             - name: Create folders
               include: create_folders.yml   mytext="Hello from Vancouver"   # вставляет по факту
