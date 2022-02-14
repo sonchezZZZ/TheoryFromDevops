@@ -177,6 +177,6 @@ or
 
             tasks: 
             - name: Create folders
-              import: create_folders.yml    # имплементирует с самого начала и добавляет                                                        перменные 
+              import: create_folders.yml    # имплементирует с самого начала и добавляет        перменные 
               
               
