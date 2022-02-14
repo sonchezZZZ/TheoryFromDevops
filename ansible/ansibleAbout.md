@@ -317,3 +317,12 @@ or
               hosts: all
               any_errors_fatal: true
               become: yes         # from root
+
+
+## Secret files
+
+- ``ansible-vault create mysecret.txt`` - create file with password 
+- ``ansible-vault view mysecret.txt``   -  view file with password
+- ``ansible-vault edit mysecret.txt``   - edit file with password
+- ``ansible-vauly rekey file.txt``      - change password in secret file
+- 
