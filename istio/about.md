@@ -13,6 +13,11 @@
 2. Check if lable  was added ``k get ns default --show-labels``
 3. delete deployments and apply again  (if some running before)
 
+``or``
+
+1. Find Values for profile which will be used
+2. In default -> values.yaml ->`` enableNamespacesByDefault: true``
+
 
 ## Programs for istio 
 
@@ -43,7 +48,71 @@
                   labels:
                     app: someApp
 
+2. Create Cluster Service for deployment 
+
+          ---
+          apiVersion: v1
+          kind: Service
+          metadata:
+            name: echo-server-v1
+            labels:
+              version: v1
+          spec:
+            type: ClusterIP
+            ports:
+            - name: echo-port
+              port: 80
+              targetPort: 8080
+            selector:
+              app: echo-server
+              version: v1
+
+3. Create gateway for application
+
+          apiVersion: networking.istio.io/v1alpha3
+          kind: Gateway
+          metadata:
+            name: gateway
+          spec:
+            selector:
+              istio: ingressgateway
+            servers:
+              - port:
+                  number: 80
+                  name: http
+                  protocol: HTTP
+                hosts:
+                  - '*'  
+
+3. Create Virtualservice for application
+
+          ---
+          apiVersion: networking.istio.io/v1alpha3
+          kind: VirtualService                      # Virtual Service
+          metadata:
+            name: echo-service-ingress              # some name
+          spec:
+            hosts:
+            - '*'                                   # host from which user will be come in
+            gateways:
+            - echo-gateway                          # gateway name
+            http: 
+              - match:                          # if matching 
+                - headers:                          # in header
+                    host:                           # host consist
+                      exact: echo-server-v1          # such text
+                route:                          # then
+                - destination:
+                    host: echo-server-v1           # go to cluster service with such name
+              - route:                          # else
+                - destination:
+                    host: echo-server-v2           # go to cluster service with such name 
 
 ## Kinds of ISTIO resources 
 
 -**gateway** ()
+
+
+# Control Plane
+
+- 
