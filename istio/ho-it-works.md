@@ -3,6 +3,13 @@ Link = https://rtfm.co.ua/istio-obzor-i-zapusk-service-mesh-v-kubernetes/
 
 # Service mesh
 
+Ключевыми задачами, которые берет на себя service mesh, являются:
+
+- управление трафиком
+- балансировка нагрузки
+- обеспечение безопасности при взаимодействии сервисов
+- сбор метрик и мониторинг
+
 ![image](https://user-images.githubusercontent.com/79608549/154493607-b0aeb27d-9131-4cff-8df3-f811bc3db642.png)
 
 
