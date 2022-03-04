@@ -18,3 +18,5 @@ kubectl exec -it vault-0 -- /bin/sh
 
 vault kv put secret/webapp/config username="cluster1-user" password="cluster1-password"
 
+https://learn.hashicorp.com/tutorials/vault/kubernetes-minikube
+
