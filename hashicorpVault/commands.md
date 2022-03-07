@@ -7,6 +7,7 @@ Install the latest Vault Helm chart in HA mode.
     $ helm install vault hashicorp/vault \
         --set "server.ha.enabled=true"
 
+ kubectl exec -ti hashicorp-vault-0 -- vault operator init --key-shares=1 --key-threshold=1
 
 kubectl exec vault-0 -- vault operator unseal ZEqukdOIfRwII9b3vfg3lGkLZBuKI0A+dRtUUFeSX5Q=
 
