@@ -21,3 +21,10 @@ vault kv put secret/webapp/config username="cluster1-user" password="cluster1-pa
 
 https://learn.hashicorp.com/tutorials/vault/kubernetes-minikube
 
+
+## Kubernetes license
+
+secret=$(cat 1931d1f4-bdfd-6881-f3f5-19349374841f.hclic)
+
+kubectl create secret generic vault-ent-license --from-literal="license=${secret}"
+
