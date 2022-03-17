@@ -32,25 +32,19 @@ kubectl create secret generic vault-ent-license --from-literal="license=${secret
 
 # Configure Kubernetes authentication
 
-vault policy write pki - <<EOF
-path "pki*"                        { capabilities = ["read", "list"] }
-path "pki/sign/example-dot-com"    { capabilities = ["create", "update"] }
-path "pki/issue/example-dot-com"   { capabilities = ["create"] }
-EOF
+    JWT=$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)
 
-kubectl exec --stdin=true --tty=true vault-0 -- /bin/sh
+    # Address of Kubernetes itself as viewed from inside a running pod
+    KUBERNETES_HOST=https://${KUBERNETES_PORT_443_TCP_ADDR}:443
 
-vault auth enable kubernetes
+    # Kubernetes internal CA
+    KUBERNETES_CA_CERT=$(cat /var/run/secrets/kubernetes.io/serviceaccount/ca.crt)
 
-vault write auth/kubernetes/config \
-    kubernetes_host="https://$KUBERNETES_PORT_443_TCP_ADDR:443" \
-    token_reviewer_jwt="$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)" \
-    kubernetes_ca_cert=@/var/run/secrets/kubernetes.io/serviceaccount/ca.crt \
-    issuer="https://kubernetes.default.svc.cluster.local"
-    
-    
-    vault write auth/kubernetes/role/issuer \
-    bound_service_account_names=issuer \
-    bound_service_account_namespaces=default \
-    policies=pki \
-    ttl=20m
+Exec into the Vault pod:
+
+```kubectl exec -it vault-0 /bin/sh```
+
+    vault write auth/kubernetes/config \
+       token_reviewer_jwt="$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)" \
+       kubernetes_host=https://${KUBERNETES_PORT_443_TCP_ADDR}:443 \
+       kubernetes_ca_cert=@/var/run/secrets/kubernetes.io/serviceaccount/ca.crt
