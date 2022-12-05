@@ -21,6 +21,13 @@
 - **Variables**: These are names that store value
 - **Pipelines**: A pipeline is a sequence of one or more commands separated by |; the standard output of the command preceding the pipe symbol is fed to the standard input of the command following it.
 
+# NOTES
+
+```
+echo ${hostname};   -  echo variable
+echo $(hostname);   -  echo command
+```
+
 # Examples of commands 
 
 - **cp** : copy file or directory
