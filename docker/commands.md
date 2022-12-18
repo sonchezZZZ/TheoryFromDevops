@@ -8,7 +8,7 @@
 - **docker run -v opt/datadir/mysql:/var/lib/mysql mysql** - запустить контейнер с хранилищем из(докер хост) куда(в контейнере)  
 - **docker run obj -d** - запустить в фоновом режиме и не тушить (detach mode)
 - **docker run -it obj sh** - запустить и войти в сервис внутри контейнера
-- **docker run -e obj ** - запустить с переменными
+- **docker run -e ENV=value obj ** - запустить с переменными
 - **docker pull obj** - скачать образ с Докер Хаб
 - **docker ps** - список работающих контейнеров
 - **docker ps -a** - показать все контейнеры
