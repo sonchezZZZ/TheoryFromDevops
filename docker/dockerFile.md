@@ -32,4 +32,10 @@ EXPOSE 28017
 ## Commands 
 
 - CMD = команда, которая будет запускать после запуска программы
-- ENTRYPOINT = apply plus one command 
+- ENTRYPOINT = такая же команда, как CMD, но CMD заменяет параметры, а EntryPoint позволяет добавлять параметры
+
+```
+CMD "sleep 5"
+# AND 
+ENTRYPOINT ["sleep"]
+docker run ubuntu-sleeper 10
