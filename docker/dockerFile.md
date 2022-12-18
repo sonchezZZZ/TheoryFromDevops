@@ -31,5 +31,5 @@ EXPOSE 28017
 
 ## Commands 
 
-- CMD = command 
+- CMD = команда, которая будет запускать после запуска программы
 - ENTRYPOINT = apply plus one command 
