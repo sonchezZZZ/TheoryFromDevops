@@ -55,3 +55,8 @@ CMD sleep 5
 # AND 
 docker run ubuntu-sleeper
 ```
+
+Если нужно переиспользовать Ентрипоинт в этом случае, нужно:
+```
+docker run --entrypoint super-sleep 10 ubuntu-sleeper 10 
+```
