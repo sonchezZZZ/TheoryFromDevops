@@ -13,6 +13,7 @@
 - **docker ps -a** - показать все контейнеры
 - **docker stop container-name** - прервать работу контейнера 
 - **docker rm cont-name** - удалить контейнер
+- **docker rm $(docker ps -a -f status=exited -q)** - delete all containers with status exited
 
 ## Удалить все запущеные контейнеры: 
 
