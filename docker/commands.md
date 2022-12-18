@@ -26,6 +26,7 @@
 - **docker images** - list of images 
 - **docker rmi image-name** - delete image
 - **docker build . -t image-name** - create an image 
+- **docker image prune -a** - удалит все неиспользуемые образы на докер-хосте
 
 
 **docker inspect object** - инспекция контейнера
