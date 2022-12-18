@@ -51,6 +51,7 @@ docker run ubuntu-sleeper 10
 ENTRYPOINT ["sleep"]
 CMD sleep 5
 
+# мы используем CMD для предоставления аргумента по умолчанию для инструкции ENTRYPOINT
 
 # AND 
 docker run ubuntu-sleeper
