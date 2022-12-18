@@ -27,6 +27,7 @@
 - **docker rmi image-name** - delete image
 - **docker build . -t image-name** - create an image 
 - **docker image prune -a** - удалит все неиспользуемые образы на докер-хосте
+- **docker image history redis** - увидеть список всех слоев образа redis вместе с размером каждого слоя
 
 
 **docker inspect object** - инспекция контейнера
