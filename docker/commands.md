@@ -25,7 +25,7 @@
 # Images 
 - **docker images** - list of images 
 - **docker rmi image-name** - delete image
-
+- **docker build . -t image-name** - create an image 
 
 
 **docker inspect object** - инспекция контейнера
