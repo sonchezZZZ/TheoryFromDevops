@@ -35,7 +35,23 @@ EXPOSE 28017
 - ENTRYPOINT = такая же команда, как CMD, но CMD заменяет параметры, а EntryPoint позволяет добавлять параметры
 
 ```
-CMD "sleep 5"
-# AND 
+CMD sleep 5
+```
+
+```
 ENTRYPOINT ["sleep"]
+# AND 
+# Docker run without parameter will be error
 docker run ubuntu-sleeper 10
+```
+</br>
+
+Чтобы использовать Ентрипоинт без параметра,, нужно использовать два поля CMD и ENTRYPOINT, например 
+```
+ENTRYPOINT ["sleep"]
+CMD sleep 5
+
+
+# AND 
+docker run ubuntu-sleeper
+```
