@@ -4,6 +4,12 @@
 - Snapshot - резервная копия Volume
 - AMI(Amazon Machine Images) - Резервная копия Instance
 
+## Types of IP: 
+- private IP (insite internal VPC)
+- public IP (изменяется при START, STOP сервера, не изменяется при REBOOT сервера )
+- Elastic IP (неизмениемые айпи)
+
+
 ## Servers
 
 - Intances - On Demand (почасовая оплата)
