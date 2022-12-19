@@ -25,7 +25,7 @@ Choose a Network Load Balancer when you need ultra-high performance, TLS offload
 Choose a Gateway Load Balancer when you need to deploy and manage a fleet of third-party virtual appliances that support GENEVE. These appliances enable you to improve security, compliance, and policy controls.
 
 ## Classic Load Balancer
-![Untitled 4](https://user-images.githubusercontent.com/79608549/208428070-f409e437-0168-40c6-a66c-35be176ff133.jpg)
 
+<img src="https://user-images.githubusercontent.com/79608549/208428070-f409e437-0168-40c6-a66c-35be176ff133.jpg" width="150" height="200">
 
 Choose a Classic Load Balancer when you have an existing application running in the EC2-Classic network.
