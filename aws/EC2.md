@@ -24,3 +24,17 @@
 - Volume - HDD/SSD Диск
 - Snapshot - Volume reserved copy 
 
+
+# EBS - Elastic Block Store 
+
+EBS - Хард диски 
+
+**Types of discs**
+root-boot:
+- Genral Purpose SSD (GP2)  -  up to 10.000 iops
+- Proisioned IOPS SSD (IO1) - подходит для баз данных - up to 20.000 iops
+- Magnetic - обычный хард диск
+
+other: 
+- Cold HDD 
+- Throughput Optimized HDD - оптимизирвоаный Magnetic 
