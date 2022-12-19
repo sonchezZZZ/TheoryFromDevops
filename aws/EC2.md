@@ -44,3 +44,7 @@ root-boot:
 other: 
 - Cold HDD 
 - Throughput Optimized HDD - оптимизирвоаный Magnetic 
+
+## Самонастройка серверов
+
+**Userdata** - настроеный скрипт для запуска команд при запуске инстенса
