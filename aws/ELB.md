@@ -5,7 +5,9 @@
 - Gateway
 
 ## Application Load Balancer
-![Untitled](https://user-images.githubusercontent.com/79608549/208427967-08a5b9c6-5975-4ff1-9070-43259ae6905b.jpg)
+
+<img src="https://user-images.githubusercontent.com/79608549/208427967-08a5b9c6-5975-4ff1-9070-43259ae6905b.jpg" width="100" height="150">
+
 
 Choose an Application Load Balancer when you need a flexible feature set for your applications with HTTP and HTTPS traffic. Operating at the request level, Application Load Balancers provide advanced routing and visibility features targeted at application architectures, including microservices and containers.
 
