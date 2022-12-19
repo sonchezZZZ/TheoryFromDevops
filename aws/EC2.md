@@ -1,3 +1,9 @@
+# Main 
+- Instance - virtual server
+- Volumes - HDD/SSD discs
+- Snapshot - резервная копия Volume
+- AMI(Amazon Machine Images) - Резервная копия Instance
+
 ## Servers
 
 - Intances - On Demand (почасовая оплата)
