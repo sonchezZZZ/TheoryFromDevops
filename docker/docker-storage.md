@@ -3,28 +3,33 @@
 ## What Is Docker Storage? ^
 ![image](https://user-images.githubusercontent.com/79608549/209439502-cc1dbf21-8e9a-46c3-8b8d-1e4cff2901b4.png)
 
-Containers don’t write data permanently to any storage location. Docker storage must be configured if you would like your container to store data permanently. The data doesn’t prevail when the container is deleted (using the remove command); this happens because when the container is deleted, the writable layer is also deleted. If the data is stored outside the container you can use it even if the container no longer exists.
+- Контейнеры не записывают данные постоянно в какое-либо место хранения. 
+- Хранилище Docker должно быть настроено, если вы хотите, чтобы ваш контейнер постоянно хранил данные. 
+- Данные не превалируют при удалении контейнера (командой remove); это происходит потому, что когда контейнер удаляется, слой, доступный для записи, также удаляется.
+- Если данные хранятся вне контейнера, вы можете использовать их, даже если контейнер больше не существует.
 
 ## Manage Data In Docker ^
-By default, all files created inside a container are stored on a writable container layer. This suggests that:
-- The data doesn’t persist when that container no longer exists, and are often difficult to urge the data out of the container if another process needs it.
-- A container’s writable layer is tightly coupled to the host machine where the container is running. You can’t easily move the data somewhere else.
-- Writing into a container’s writable layer requires a storage driver to manage the filesystem.
+По умолчанию все файлы, созданные внутри контейнера, хранятся на доступном для записи уровне контейнера. 
+Это говорит о том, что:
+- Данные не сохраняются, когда этот контейнер больше не существует, и часто бывает трудно извлечь данные из контейнера, если они нужны другому процессу.
+- Доступный для записи уровень контейнера тесно связан с хост-компьютером, на котором работает контейнер. Вы не можете легко переместить данные в другое место.
+- Для записи в доступный для записи уровень контейнера требуется драйвер хранилища для управления файловой системой.
 
 ## Docker Storage Types ^
 ![image](https://user-images.githubusercontent.com/79608549/209439479-60f51d95-0d67-4241-9b9d-c07e6f844935.png)
 
-Docker storage typesDocker storage distinguishes three storage types. Two types are permanent: Docker volumes and bind Mounts and the third way of writing data is tmpfs. From the container perspective, it doesn’t know what sort of storage is in use.
+Типы хранилищ DockerХранилище Docker различает три типа хранилищ. Два типа являются постоянными: **тома Docker и привязки Mounts**, а третий способ записи данных — **tmpfs**. С точки зрения контейнера, он не знает, какое хранилище используется.
 
-The difference between these is, volumes have a dedicated filesystem on the host (/var/lib/ docker/volumes) and are directly controlled through the Docker CLI. On the other hand, bind mounts use any available host filesystem. Whereas tmfs, uses the host memory.
+Разница между ними в том, что **volumes** имеют выделенную файловую систему на хосте (/var/lib/docker/volumes) и напрямую управляются через интерфейс командной строки Docker. С другой стороны, при **mount** привязки используется любая доступная файловая система хоста. В то время как **tmfs** использует память хоста.
 
 ## Docker Volume Use Case ^
-Docker volume is the most commonly used technology for the permanent storage of container data. Docker volume is managed by Docker itself and has a dedicated filesystem on the host, doesn’t depend upon the filesystem structure on the host. Docker volumes are explicitly managed via the Docker command line and can be created alone or during container initialization. The command used is docker volume create.
+**Docker Volumes** — наиболее часто используемая технология для постоянного хранения данных контейнера. Docker Volumes управляется самим Docker и имеет выделенную файловую систему на хосте, не зависит от структуры файловой системы на хосте. Docker Volumes явно управляются через командную строку Docker и могут создаваться отдельно или во время инициализации контейнера. 
+Используемая команда — ```docker volume create```
 
 When stopping or deleting a container, Docker volume remains permanently stored. The volumes are often manually deleted with the docker volume prune command. Multiple containers can be connected to the same Docker volume.
 
 ## Docker Bind Mount ^
-Docker bind mount is the second permanent storage option but with more limited options than Docker volume. It can’t be managed via Docker CLI and is totally dependent on the availability of the filesystem of the host. A host filesystem can be created when running a container. Bind mounts are a sort of superset of Volumes (named or unnamed).
+Docker bind mount — это второй вариант постоянного хранилища, но с более ограниченными возможностями, чем Docker Volumes. Им нельзя управлять через интерфейс командной строки Docker, и он полностью зависит от доступности файловой системы хоста. Файловая система хоста может быть создана при запуске контейнера. Связные монтирования — это своего рода надмножество томов (именованных или безымянных).
 
 Commands:
 ```bind mount: note that the host path should start with ‘/’. Use $(pwd) for convenience.```
@@ -39,7 +44,9 @@ named volume: should not start with ‘/’ as this is reserved for bind mount. 
 
 
 ## tmpfs Mounts ^
-tmpfs is a third storage option that is not permanent like Docker volume or bind mount. The data is written directly on to the host’s memory and deleted when the container is stopped. Very useful when it involves sensitive data that you simply don’t want to be permanent. A really significant difference is that containers can’t share tmpfs space unless they’re running on Linux OS. Two flags are used when creating tmpfs volume: tmpfs and mount. Mount flag is newer and supports multiple options during container startup.  Temporary filesystems are written to RAM (or to your swap file if RAM is filling up) and not to the host or the container’s own filesystem layer at Docker.com: Docker tmpfs.
+
+tmpfs — это третий вариант хранилища, который не является постоянным, как Docker volume or bind mount. Данные записываются непосредственно в память хоста и удаляются при остановке контейнера. 
+> Очень полезно, когда речь идет о конфиденциальных данных, которые вы просто не хотите хранить постоянно. Действительно существенное отличие заключается в том, что контейнеры не могут совместно использовать пространство tmpfs, если только они не работают в ОС Linux. При создании тома tmpfs используются два флага: tmpfs и mount. Флаг монтирования новее и поддерживает несколько параметров во время запуска контейнера. Временные файловые системы записываются в ОЗУ (или в файл подкачки, если ОЗУ заполняется), а не на хост или собственный слой файловой системы контейнера на Docker.com: Docker tmpfs.
 
 **Commands**:
 ```
