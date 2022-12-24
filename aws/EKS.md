@@ -1,0 +1,27 @@
+# Steps to create 
+
+1. Create a user in IAM
+2. 
+
+## Selecting worker sizing
+```bash
+eksctl get nodegroups --cluster cluster-name 
+```
+
+```
+eksctl create nodegroup --node-type m5.large --cluster cluster-name --name bottlerocket --node-ami-family Bottlerocket 
+```
+
+```bash
+eksctl delete nodegroup --cluster cluster-name node-group-name
+```
+
+## Creating scaling worker pools
+
+1. Create node group 
+```
+eksctl create nodegroup --node-type m5.large --name asgscale --cluster cluster-name --asg-access --nodes-min 1 --nodes-max 3
+```
+
+2. Go to auto scaling groups -> automatic scaling groups
+3. 
