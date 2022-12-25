@@ -1,7 +1,16 @@
 # Steps to create 
 
 1. Create a user in IAM
-2. 
+2. Run eksctl command 
+
+```
+export AWS_ACCESS_KEY=
+export AWS_SECRET_ACCESS_KEY=
+export AWS_DEFAULT_REGION=
+eksctl get clusters
+eksctl create cluster cluster-name
+eksctl delete cluster cluster-name
+```
 
 ## Selecting worker sizing
 ```bash
