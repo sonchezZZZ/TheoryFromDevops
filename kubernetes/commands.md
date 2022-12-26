@@ -135,9 +135,9 @@ spec:
     rollingUpdate:
       maxUnavailable: 1
   selector:
+#####отрывок манифеста#####  
 ```  
 
-#####отрывок манифеста#####
 
 ### Rollout
 
