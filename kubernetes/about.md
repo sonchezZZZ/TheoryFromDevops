@@ -72,6 +72,7 @@ We will cover other options on how to expose your application outside the kubern
 
 ## Data Plane
 Компонентами на Воркер-Нодах являются runtime, kubelet и kube-proxy.
+![image](https://user-images.githubusercontent.com/79608549/209569972-2de52eb1-80a6-4fd0-8ecc-8fb2610774f9.png)
 
 **kubelet** - отвечает за работу контейнеров в Поде. Бывают ситуации, когда Ваш Контейнер в Поде рестартовал, а причину не дают ни логи, ни describe, так вот, kubelet - всему Голова, зайдите по ssh на Ноду с проблемным Подом и выполните команду ```sudo journalctl -u kubelet | grep <podname>``` я уверен, Вы найдете причину.
   
