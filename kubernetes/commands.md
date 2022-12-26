@@ -115,3 +115,37 @@ To delete Services you can use the delete service command. Labels can be used al
 - ``` kubectl delete service deploy ```     |   delete service
 - ```k expose deployment deploy --type=NodePort  --port 80```    | create node port service
 - ```k expose deployment deploy --type=LoadBalancer --port 80```
+
+## RollingUpdate
+
+Deployment имеет возможность делать плавающие/постепенные обновления. То есть, сначала ставить Под с новой версией приложения, и когда она поднимется, убивать реплику старой версии приложения. Такая политика позволит сделать обновление более плавным и безопасным. Для реализации такого механизма в spec'ах деплоймента нужно прописать стратегию обновления.
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: goapp-deployment
+  namespace: rolling
+  labels:
+    app: goapp
+spec:
+  replicas: 3
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+  selector:
+```  
+
+#####отрывок манифеста#####
+
+### Rollout
+
+```bash
+kubectl rollout history deployment/goapp-deployment     # Проверить историю деплоймента
+kubectl rollout undo deployment/goapp-deployment        # Откатиться к предыдущей версии деплоймента
+kubectl rollout restart deployment/goapp-deployment     # Плавающий рестарт Подов в деплойменте 
+``` 
+
+(*)  на самом деле Деплоймент - это контроллер контроллера ReplicaSet, который отслеживает количество реплик, контроллер Деплоймент расширяет этот функционал. 
+
