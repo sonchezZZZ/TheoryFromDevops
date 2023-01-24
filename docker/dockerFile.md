@@ -61,3 +61,28 @@ docker run ubuntu-sleeper
 ```
 docker run --entrypoint super-sleep 10 ubuntu-sleeper 10 
 ```
+
+
+## What are the contents of a Dockerfile?
+
+The Dockerfile example that’s used in the demonstration uses the following instructions. These instructions were used as a good starting point for learning. For more information about Dockerfile instructions, see Dockerfile reference.
+
+```bash
+FROM: Defines the base image. All the instructions that follow are run in a container launched from the base image.
+WORKDIR: Sets the working directory for the subsequence instructions.
+ENV: Sets environment variables.
+COPY: Copies files and directories into the container image.
+RUN: Runs commands in the new container. This instruction commits a new layer on top of the present layer.
+CMD: Sets the default command to run when the container is launched.
+EXPOSE: Is used to document the containers that the port exposes.
+```
+
+## Docker commands
+
+For more information, see the full reference for the docker base command.
+
+- docker build: Builds an image from a Dockerfile. In the demonstration, we pass -t to tag the image that’s created.
+- docker run: Creates and starts a container. In the demonstration, we use -p to expose ports, -e to set environment variables, and -v to bind mount volumes.
+- docker exec: Runs a command in a running container.
+- docker stop: Stops a container.
+- docker rm: Removes a container. Use -f to force the remove.
